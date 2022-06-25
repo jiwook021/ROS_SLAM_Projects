@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: jiwook_v1
+Description: Description of jiwook_v1
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: roscpp std_msgs
