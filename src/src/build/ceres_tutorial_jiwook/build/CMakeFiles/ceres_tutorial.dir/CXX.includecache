@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/jiwook/catkin_ws/src/src/build/ceres_tutorial_jiwook/ceres_tutorial.cpp
+ceres/ceres.h
+-
+chrono
+-
+iostream
+-
+ceres/ceres.h
+-
+chrono
+-
+iostream
+-
+opencv2/core/core.hpp
+-
+

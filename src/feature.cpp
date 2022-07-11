@@ -8,7 +8,6 @@
 
 
 int main(int argc, char const *argv[]){
-    
 
     std::string path1 = "/home/jiwook/catkin_ws/src/src/data/1.png";
     std::string path2 = "/home/jiwook/catkin_ws/src/src/data/2.png";

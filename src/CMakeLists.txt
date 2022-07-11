@@ -6,7 +6,6 @@ set(CMAKE_CXX_FLAGS "-std=c++17")
 
 find_package(Ceres REQUIRED)
 
-
 include_directories(
     ${CERES_INCLUDE_DIRS}
     "/usr/include/eigen3/"
