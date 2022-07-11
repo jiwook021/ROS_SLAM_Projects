@@ -4,6 +4,7 @@
 
 #include <vector>
 
+
 class CURVE_FITTING_COST{
     private:
         double _x, _y;
