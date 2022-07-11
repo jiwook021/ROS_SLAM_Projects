@@ -4,11 +4,11 @@ project(jiwook_v1)
 add_compile_options(-std=c++17)
 
 
-
 find_package(catkin REQUIRED COMPONENTS
    roscpp
    std_msgs
-
+   sensor_msgs
+   cv_bridge
 )
 find_package(OpenCV REQUIRED)
 catkin_package(
@@ -45,10 +45,10 @@ target_link_libraries(feature
 
 
 target_link_libraries(hello
-  ${catkin_LIBRARIES}
+  ${catkin_LIBRARIES} ${OpenCV_LIBRARIES}
 )
 target_link_libraries(hello_sub
-  ${catkin_LIBRARIES}
+  ${catkin_LIBRARIES} ${OpenCV_LIBRARIES}
 )
 target_link_libraries(ceres_tutorial
   ${catkin_LIBRARIES} ${OpenCV_LIBRARIES} ${CERES_LIBRARIES}
