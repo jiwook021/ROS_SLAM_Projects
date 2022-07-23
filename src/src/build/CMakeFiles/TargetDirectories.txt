@@ -1,3 +1,0 @@
-/home/jiwook/catkin_ws/src/src/build/CMakeFiles/edit_cache.dir
-/home/jiwook/catkin_ws/src/src/build/CMakeFiles/rebuild_cache.dir
-/home/jiwook/catkin_ws/src/src/build/CMakeFiles/ceres_tutorial.dir
