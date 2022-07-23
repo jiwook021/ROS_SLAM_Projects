@@ -27,13 +27,11 @@ include_directories(
   ${OpenCV_INCLUDE_DIRS}
 )
 
-add_executable(hello src/hello.cpp)
-add_executable(hello_sub src/hello_sub.cpp)
-add_executable(feature src/feature.cpp)
-add_executable(ceres_tutorial src/ceres_tutorial.cpp)
-
-
-add_dependencies(hello ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_executable(Image_send Image_send.cpp)
+add_executable(hello_sub hello_sub.cpp)
+add_executable(feature feature.cpp)
+add_executable(ceres_tutorial ceres_tutorial.cpp)
+add_dependencies(Image_send ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(hello_sub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(feature ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(ceres_tutorial ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
@@ -44,7 +42,7 @@ target_link_libraries(feature
 )
 
 
-target_link_libraries(hello
+target_link_libraries(Image_send
   ${catkin_LIBRARIES} ${OpenCV_LIBRARIES}
 )
 target_link_libraries(hello_sub
