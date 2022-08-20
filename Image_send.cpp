@@ -6,8 +6,8 @@
 #include "std_msgs/String.h"
 #include "sensor_msgs/Image.h"
 
-
-int main(int argc, char** argv) {
+int main(int argc, char** argv) 
+{
     ros::init(argc, argv, "talker");
     ros::NodeHandle n;
     ros::Publisher chat_pub = n.advertise<std_msgs::String>("chat", 1);    

@@ -1,8 +1,6 @@
 cmake_minimum_required(VERSION 3.0.2)
 project(jiwook_v1)
-
 add_compile_options(-std=c++17)
-
 
 find_package(catkin REQUIRED COMPONENTS
    roscpp
@@ -11,7 +9,7 @@ find_package(catkin REQUIRED COMPONENTS
    cv_bridge
    message_generation
    rospy 
-   )
+)
 
 find_package(OpenCV REQUIRED)
 
@@ -29,10 +27,7 @@ catkin_package(
  CATKIN_DEPENDS roscpp std_msgs rospy message_runtime
 ) 
 
-
-
 #find_package(Ceres REQUIRED)
-
 
 include_directories(
   include
@@ -70,11 +65,6 @@ target_link_libraries(IMU_data
 #target_link_libraries(ceres_tutorial
 #  ${catkin_LIBRARIES} ${OpenCV_LIBRARIES} ${CERES_LIBRARIES}
 #)
-
-
-
-
-
 
 catkin_install_python(PROGRAMS scripts/add_two_ints_server.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
