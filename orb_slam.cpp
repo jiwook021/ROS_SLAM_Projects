@@ -1,5 +1,4 @@
 #include <iostream>
-
 #include <opencv2/calib3d/calib3d.hpp>
 #include <opencv2/core/core.hpp>
 #include <opencv2/features2d/features2d.hpp>
@@ -9,8 +8,8 @@
 
 int main(int argc, char const *argv[]){
 
-    std::string path1 = "/home/jiwook/catkin_ws/src/src/data/1.png";
-    std::string path2 = "/home/jiwook/catkin_ws/src/src/data/2.png";
+    std::string path1 = "/home/jiwook/catkin_ws/src/data/1.png";
+    std::string path2 = "/home/jiwook/catkin_ws/src/data/2.png";
   
     cv::Mat img1 = cv::imread(path1, cv::IMREAD_COLOR);
     cv::Mat img2 = cv::imread(path2, cv::IMREAD_COLOR);

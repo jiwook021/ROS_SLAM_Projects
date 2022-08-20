@@ -11,7 +11,9 @@ int main(int argc, char** argv) {
     ros::init(argc, argv, "talker");
     ros::NodeHandle n;
     ros::Publisher chat_pub = n.advertise<std_msgs::String>("chat", 1);    
-    std::string path = "./img/Git.png";
+    
+    
+    std::string path = "/home/jiwook/catkin_ws/src/img/Git.png";
 
     ros::Publisher img_pub = n.advertise<sensor_msgs::Image>("img",10);
     cv::Mat image = cv::imread(path, cv::IMREAD_COLOR);
