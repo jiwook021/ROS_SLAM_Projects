@@ -44,12 +44,15 @@ add_executable(hello_sub hello_sub.cpp)
 add_executable(orb_slam orb_slam.cpp)
 #add_executable(ceres_tutorial ceres_tutorial.cpp)
 add_executable(IMU_data IMU_data.cpp)
+add_executable(GPS_nav GPS_nav.cpp)
+
 
 add_dependencies(Image_send ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(hello_sub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(orb_slam ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 #add_dependencies(ceres_tutorial ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(IMU_data ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(GPS_nav ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 
 target_link_libraries(orb_slam
@@ -63,6 +66,9 @@ target_link_libraries(hello_sub
   ${catkin_LIBRARIES} ${OpenCV_LIBRARIES}
 )
 target_link_libraries(IMU_data
+  ${catkin_LIBRARIES} 
+)
+target_link_libraries(GPS_nav
   ${catkin_LIBRARIES} 
 )
 #target_link_libraries(ceres_tutorial
