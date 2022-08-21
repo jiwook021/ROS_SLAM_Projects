@@ -6,9 +6,12 @@ find_package(catkin REQUIRED COMPONENTS
    roscpp
    std_msgs
    sensor_msgs
+   nav_msgs
+   
    cv_bridge
    message_generation
    rospy 
+
 )
 
 find_package(OpenCV REQUIRED)
