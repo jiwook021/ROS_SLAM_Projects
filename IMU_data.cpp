@@ -8,6 +8,8 @@ double position_x;
 double position_y;
 double vel_x;
 double vel_y;
+double x_acc; 
+ouble y_acc; 
 
 ros::Time before_time;
 
@@ -29,8 +31,8 @@ void imuCallback(const sensor_msgs::Imu::ConstPtr& msg)
     //std::cout<< "x: " << msg->linear_acceleration.x << std::endl; 
     //std::cout<< "y: " << msg->linear_acceleration.y << std::endl; 
     //std::cout<< "z: " << msg->linear_acceleration.z << std::endl; 
-    double x_acc = msg->linear_acceleration.x;
-    double y_acc = msg->linear_acceleration.y;
+    x_acc = msg->linear_acceleration.x;
+    y_acc = msg->linear_acceleration.y;
  
     ros::Duration del_t;
     del_t = ros::Time::now() - before_time;
@@ -60,7 +62,6 @@ void imuCallback(const sensor_msgs::Imu::ConstPtr& msg)
     odom.twist.twist.angular.y = 0;
     odom.twist.twist.angular.z = 0;
     odom_pub.publish(odom);
-
 }
 
 int main(int argc, char ** argv)
@@ -71,6 +72,8 @@ int main(int argc, char ** argv)
     odom_pub = node.advertise<nav_msgs::Odometry>("/odom/",10);
 
     ros::Subscriber imu_sub = node.subscribe("/kitti/oxts/imu", 10, imuCallback);
+    
     ros::spin(); 
+    
     return 0; 
 }
