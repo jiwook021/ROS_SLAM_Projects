@@ -9,13 +9,13 @@
 int main(int argc, char** argv) 
 {
     ros::init(argc, argv, "talker");
-    ros::NodeHandle n;
-    ros::Publisher chat_pub = n.advertise<std_msgs::String>("chat", 1);    
+    ros::NodeHandle node;
+    ros::Publisher chat_pub = node.advertise<std_msgs::String>("chat", 1);    
     
     
     std::string path = "/home/jiwook/catkin_ws/src/img/Git.png";
 
-    ros::Publisher img_pub = n.advertise<sensor_msgs::Image>("img",10);
+    ros::Publisher img_pub = node.advertise<sensor_msgs::Image>("img",10);
     cv::Mat image = cv::imread(path, cv::IMREAD_COLOR);
     cv::imshow("show1",image);
     cv::waitKey(0);

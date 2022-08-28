@@ -11,7 +11,6 @@ find_package(catkin REQUIRED COMPONENTS
    cv_bridge
    message_generation
    rospy 
-
 )
 
 find_package(OpenCV REQUIRED)
