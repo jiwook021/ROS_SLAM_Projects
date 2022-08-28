@@ -10,14 +10,10 @@
 #define _UTM_H
 
 /**  @file
-
      @brief Universal Transverse Mercator transforms.
-
      Functions to convert (spherical) latitude and longitude to and
      from (Euclidean) UTM coordinates.
-
      @author Chuck Gantz- chuck.gantz@globalstar.com
-
  */
 
 #include <cmath>
