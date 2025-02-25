@@ -3,21 +3,30 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/features2d/features2d.hpp>
 #include <opencv2/highgui/highgui.hpp>
-
+#include <thread>
+#include <chrono>
 
 
 int main(int argc, char const *argv[]){
 
-    std::string path1 = "/home/jiwook/catkin_ws/src/data/1.png";
-    std::string path2 = "/home/jiwook/catkin_ws/src/data/2.png";
-  
+    std::string path1 = "data/1.png";
+    std::string path2 = "data/2.png";
     cv::Mat img1 = cv::imread(path1, cv::IMREAD_COLOR);
     cv::Mat img2 = cv::imread(path2, cv::IMREAD_COLOR);
   
+    if (img1.empty()) {
+        std::cerr << "Error: Could not load image at " << path1 << std::endl;
+        return -1;
+    }
+    if (img2.empty()) {
+        std::cerr << "Error: Could not load image at " << path2 << std::endl;
+        return -1;
+    }
+
     cv::imshow("show1",img1);
     cv::imshow("show2",img2);
-    cv::waitKey(0);
-
+    cv::waitKey(5000);
+    std::this_thread::sleep_for(std::chrono::milliseconds(5000));
     //orb feature extractor 
     std::vector<cv::KeyPoint> keypoint_1, keypoint_2;
     cv::Mat descriptors_1, descriptors_2;
@@ -43,7 +52,7 @@ int main(int argc, char const *argv[]){
     cv::drawKeypoints(img2,keypoint_2, detect_result_img2, cv::Scalar::all(-1), cv::DrawMatchesFlags::DEFAULT);
     cv::imshow("draw result image 2", detect_result_img2);
  
-    cv::waitKey(0);
+    cv::waitKey(1000);
 
     std::vector<cv::DMatch> matches;
     matcher -> match(descriptors_1,descriptors_2,matches);
@@ -51,6 +60,7 @@ int main(int argc, char const *argv[]){
     cv::Mat result_match;
     cv::drawMatches(img1,keypoint_1,img2,keypoint_2,matches, result_match);
     cv::imshow("result match", result_match);
+    cv::waitKey(5000);
     cv::waitKey(0);
 
     double min_distance = 100000, max_distance = 0; 
@@ -75,7 +85,7 @@ int main(int argc, char const *argv[]){
     
     cv::drawMatches(img1,keypoint_1, img2, keypoint_2, good_matches, good_matches_img);
     cv::imshow("Good result Match", good_matches_img);
-    cv::waitKey(0);
+    cv::waitKey(100000);
 
     cv::Point2d principal_point(325.1,249.7); 
     double focal_length =521; 
