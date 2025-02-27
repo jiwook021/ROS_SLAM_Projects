@@ -71,24 +71,6 @@ void imuCallback(const sensor_msgs::Imu::ConstPtr& msg)
     vel_x = vel_x +x_acc * del_t.toSec();
     vel_y = vel_y +y_acc * del_t.toSec();
 
-<<<<<<< HEAD
-    imu_before_time = ros::Time::now();
-    ROS_INFO("\npos_x : %.2f\npos_y: %.2f \nvel_x: %.2f\nvel_y:%.2f", position_x, position_y, vel_x, vel_y);    
-    imu_odom.header.frame_id = "base_link";
-    imu_odom.pose.pose.position.x = position_x;
-    imu_odom.pose.pose.position.y = position_y;
-    imu_odom.pose.pose.position.z = 0;
-
-    imu_odom.pose.pose.orientation = msg -> orientation; 
-    imu_odom.twist.twist.linear.x = vel_x;
-    imu_odom.twist.twist.linear.y = vel_y;
-    imu_odom.twist.twist.linear.z = 0;
-
-    imu_odom.twist.twist.angular.x = 0;
-    imu_odom.twist.twist.angular.y = 0;
-    imu_odom.twist.twist.angular.z = 0;
-    imu_odom_pub.publish(imu_odom);
-=======
     before_time = ros::Time::now();
     
     ROS_INFO("\npos_x : %.2f\npos_y: %.2f \nvel_x: %.2f\nvel_y:%.2f", position_x, position_y, vel_x, vel_y);
@@ -107,7 +89,6 @@ void imuCallback(const sensor_msgs::Imu::ConstPtr& msg)
     odom.twist.twist.angular.y = 0;
     odom.twist.twist.angular.z = 0;
     odom_pub.publish(odom);
->>>>>>> 388fc022698972b28cfa89f15b136112fbc99d21
 }
 
 int main(int argc, char ** argv)
@@ -118,13 +99,8 @@ int main(int argc, char ** argv)
     imu_odom_pub = node.advertise<nav_msgs::Odometry>("imu_odom/",10);
     gps_odom_pub = node.advertise<nav_msgs::Odometry>("gps_odom/",10);
 
-<<<<<<< HEAD
     ros::Subscriber gps_sub = node.subscribe("GPS_nav", 10, gpsCallback);
     ros::Subscriber imu_sub = node.subscribe("/kitti/oxts/imu", 10, imuCallback);    
-=======
-    ros::Subscriber imu_sub = node.subscribe("/kitti/oxts/imu", 10, imuCallback);
-    
->>>>>>> 388fc022698972b28cfa89f15b136112fbc99d21
     ros::spin(); 
     
     return 0; 
